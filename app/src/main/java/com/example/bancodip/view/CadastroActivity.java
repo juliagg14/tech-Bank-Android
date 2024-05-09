@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.example.bancodip.controller.ControllerBancoDados;
 import com.example.bancodip.controller.Util;
 import com.example.bancodip.databinding.ActivityCadastroBinding;
-import com.example.bancodip.databinding.ActivityRegisterBinding;
+import com.example.bancodip.databinding.ActivityCadastroBinding;
 
 public class CadastroActivity extends AppCompatActivity {
 
