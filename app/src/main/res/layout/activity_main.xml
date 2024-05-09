@@ -39,6 +39,7 @@
             />
 
         <TextView
+            android:id="@+id/nome_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -50,11 +51,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/containerCirculo" />
 
+        <Button
+            android:id="@+id/BtnExit"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="275dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#FB4040"
+            android:fontFamily="sans-serif-black"
+
+            app:layout_constraintStart_toEndOf="@id/containerCirculo"
+
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_exit"
+            app:layout_constraintBottom_toBottomOf="@id/BtnExit"
+            app:layout_constraintEnd_toEndOf="@id/BtnExit"
+            app:layout_constraintStart_toStartOf="@id/BtnExit"
+            app:layout_constraintTop_toTopOf="@id/BtnExit"
+
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="220dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="sans-serif-black"
             android:text="@string/numero_conta"
             android:textColor="#D3FFFFFF"
@@ -67,37 +92,60 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/saldoChequeEespecial"
+        android:id="@+id/txtsaldoChequeEspecial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cheque Especial\n\n R$ 1000,00"
+        android:text="Cheque Especial"
         android:textSize="20dp"
         android:textColor="#FB4040"
         android:fontFamily="sans-serif-black"
-        android:layout_marginStart="220dp"
+        android:layout_marginStart="210dp"
         android:layout_marginTop="25dp"
 
         />
+    <TextView
+        android:id="@+id/saldoChequeEspecial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R$ 1000,00"
+        android:textSize="20dp"
+        android:textColor="#FB4040"
+        android:fontFamily="sans-serif-black"
+        android:layout_marginStart="215dp"
+        android:layout_marginTop="5dp"
+
+        />
+
+
+    <TextView
+        android:id="@+id/txtsaldoConta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="-55dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Saldo"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
 
     <TextView
         android:id="@+id/saldoConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="-75dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-black"
-        android:text="@string/saldo_conta"
+        android:text="R$ 1000,00"
         android:textColor="@color/black"
         android:textSize="20dp" />
-
 
     <EditText
         android:id="@+id/hint_user_valor"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="50dp"
         android:autofillHints="null"
         android:background="@drawable/edit_text_background"
@@ -111,7 +159,6 @@
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_cheque_disponivel" />
-
 
     <Button
         android:id="@+id/btnSacar"

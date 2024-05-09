@@ -6,69 +6,62 @@
     android:layout_height="match_parent">
 
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/transferEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:outlineProvider="background"
-        android:textColorHint="#021CC8"
-
-        app:boxStrokeColor="#021CC8"
-        app:layout_constraintBottom_toTopOf="@+id/tranferirValor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email do Destinatário"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tranferirValor"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:outlineProvider="background"
-        android:textColorHint="#021CC8"
-
-        app:boxStrokeColor="#021CC8"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.564">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Valor a Transferir"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <Button
-        android:id="@+id/btnConfirmarTranferencia"
+    <EditText
+        android:id="@+id/trans_user_email"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="100dp"
+
+        android:background="@drawable/edit_text_background"
+
+        android:backgroundTint="#021CC8"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#021CC8"
+
+        android:textColorHint="#021CC8"
+        app:layout_constraintBottom_toTopOf="@+id/trans_user_valor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/trans_user_valor"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="104dp"
+
+        android:background="@drawable/edit_text_background"
+
+        android:backgroundTint="#021CC8"
+        android:fontFamily="@font/roboto_medium"
+        android:hint="@string/hint_txt_inserir_valor"
+        android:inputType="number|numberDecimal"
+        android:padding="10dp"
+        android:textColor="#021CC8"
+
+        android:textColorHint="#021CC8"
+        app:layout_constraintBottom_toTopOf="@+id/confirmarTransferencia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/confirmarTransferencia"
+
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="#021CC8"
         android:fontFamily="sans-serif-black"
         android:text="TRANSFERIR"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/cancelarTransferencia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancelarTransferencia"
@@ -83,6 +76,6 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.882" />
+        app:layout_constraintVertical_bias="0.856" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

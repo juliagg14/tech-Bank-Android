@@ -30,9 +30,9 @@ public class CadastroActivity extends AppCompatActivity {
         binding.btnConfirmarCadastro.setOnClickListener(v -> {
             controllerBancoDados.open();
 
-            String  nome = binding.inputNome.getEditText().toString().toUpperCase().trim();
-            String email = binding.inputEmail.getEditText().toString().toUpperCase().trim();
-            String saldo = binding.inputSaldo.getEditText().toString().trim();
+            String  nome = binding.hintRegisterNome.getText().toString().toUpperCase().trim();
+            String email = binding.hintRegisterEmail.getText().toString().toUpperCase().trim();
+            String saldo = binding.hintRegisterSaldo.getText().toString().trim();
 
             if(!nome.isEmpty() && !email.isEmpty() && !saldo.isEmpty() && util.isValidEmail(email) && !controllerBancoDados.isEmailInDatabase(email) ){
 

@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         controllerBancoDados = new ControllerBancoDados(this);
         util = new Util();
 
+
+        Intent intentExit = new Intent(MainActivity.this, LoginActivity.class);
+        Intent intente = getIntent();
+
         Intent intentTrans = new Intent(MainActivity.this, TransferirActivity.class);
         Intent intentt = getIntent();
 
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         intentTrans.putExtra("email_trans", email);
 
+
+
         try {
             controllerBancoDados.open();
 
@@ -47,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
             String saldoString = String.valueOf(saldoBanco);
             String chequeString = String.valueOf(chequeBanco);
 
+            binding.nomeUsuario.setText("Olá, " + util.primeiraLetraMaiscula(nome));
+
             binding.saldoConta.setText("R$ " + saldoString);
-            binding.saldoChequeEespecial.setText(chequeString);
+            binding.saldoChequeEspecial.setText("R$ " + chequeString);
 
         } catch (Exception e){
             e.printStackTrace();
@@ -74,12 +82,14 @@ public class MainActivity extends AppCompatActivity {
                     Double novoCheque = cheque + Double.parseDouble(valorCliente);
 
                     controllerBancoDados.updateSaldo(email, novoSaldo);
-                    binding.saldoConta.setText(String.valueOf(novoSaldo));
+                    binding.saldoConta.setText("R$ "+ String.valueOf(novoSaldo));
+
+                    Toast.makeText(this, "Deposito realizado com sucesso!", Toast.LENGTH_SHORT).show();
 
 
                     if(valorSaldo < 0 ){
                         controllerBancoDados.updateCheque(email, novoCheque);
-                        binding.saldoChequeEespecial.setText(String.valueOf(novoCheque));
+                        binding.saldoChequeEspecial.setText("R$ " + String.valueOf(novoCheque));
                     }
                     if(novoSaldo >= 0 && cheque < CHEQUEESPECIAL){
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -95,15 +105,13 @@ public class MainActivity extends AppCompatActivity {
                         alerta.show();
 
                         controllerBancoDados.updateCheque(email, CHEQUEESPECIAL);
-                        binding.saldoChequeEespecial.setText(String.valueOf(CHEQUEESPECIAL));
+                        binding.saldoChequeEspecial.setText("R$ " + String.valueOf(CHEQUEESPECIAL));
 
                     }
 
                 }catch (Exception e){
                     e.printStackTrace();
                 } finally {
-
-
                     controllerBancoDados.close();
                     binding.hintUserValor.setText("");
                 }
@@ -131,13 +139,17 @@ public class MainActivity extends AppCompatActivity {
 
                     if (saldo > 0 && novoSaldo >= 0) {
                         controllerBancoDados.updateSaldo(email, novoSaldo);
-                        binding.saldoConta.setText(String.valueOf(novoSaldo));
+                        binding.saldoConta.setText("R$ " + String.valueOf(novoSaldo));
+
+                        Toast.makeText(this, "Saque realizado com sucesso!", Toast.LENGTH_SHORT).show();
                     } else if (saldo <= 0 && novoSaldo >= -CHEQUEESPECIAL) {
                         controllerBancoDados.updateSaldo(email, novoSaldo);
-                        binding.saldoConta.setText(String.valueOf(novoSaldo));
+                        binding.saldoConta.setText("R$ " + String.valueOf(novoSaldo));
 
                         controllerBancoDados.updateCheque(email, novoCheque);
-                        binding.saldoChequeEespecial.setText(String.valueOf(novoCheque));
+                        binding.saldoChequeEspecial.setText("R$ " + String.valueOf(novoCheque));
+
+                        Toast.makeText(this, "Saque realizado com sucesso!", Toast.LENGTH_SHORT).show();
                     } else if (saldo <= -CHEQUEESPECIAL) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setMessage("Sem cheque especial");
@@ -152,10 +164,10 @@ public class MainActivity extends AppCompatActivity {
                         alerta.show();
 
                         controllerBancoDados.updateSaldo(email, -CHEQUEESPECIAL);
-                        binding.saldoConta.setText(String.valueOf(-CHEQUEESPECIAL));
+                        binding.saldoConta.setText("R$ " + String.valueOf(-CHEQUEESPECIAL));
 
                         controllerBancoDados.updateCheque(email, 0);
-                        binding.saldoChequeEespecial.setText(String.valueOf(0.00));
+                        binding.saldoChequeEspecial.setText("R$ " + String.valueOf(0.00));
                     } else{
                         AlertDialog.Builder builder = new AlertDialog.Builder(this);
                         builder.setMessage("Saldo insuficiente");
@@ -184,11 +196,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        binding.BtnExit.setOnClickListener(v -> {
+            startActivity(intentExit);
+        });
+
 
 
         binding.btnTranferir.setOnClickListener(v -> {
             startActivity(intentTrans);
         });
+
 
     }
 
@@ -202,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         String email = intent.getStringExtra("email");
         Double saldo = controllerBancoDados.getSaldoByTitular(email);
 
-        binding.saldoConta.setText(String.valueOf(saldo));
+        binding.saldoConta.setText("R$" + String.valueOf(saldo));
 
     }
 

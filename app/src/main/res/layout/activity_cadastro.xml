@@ -7,6 +7,7 @@
 
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="350dp"
         android:layout_height="250dp"
         android:src="@drawable/logobank"
@@ -18,76 +19,71 @@
 
     </ImageView>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputEmail"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/hint_register_nome"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="256dp"
-        android:outlineProvider="background"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="40dp"
+        android:autofillHints="null"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="#021CC8"
+        android:hint="Nome"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="10dp"
         android:textColorHint="#021CC8"
-
-        app:boxStrokeColor="#021CC8"
+        app:layout_constraintBottom_toTopOf="@+id/hint_register_email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputNome"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/hint_register_email"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="60dp"
-        android:outlineProvider="background"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="40dp"
+        android:autofillHints="E-Mail"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="#021CC8"
+        android:hint="Email"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="10dp"
         android:textColorHint="#021CC8"
-        app:boxStrokeColor="#021CC8"
-
+        app:layout_constraintBottom_toTopOf="@+id/hint_register_saldo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail">
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputSaldo"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <EditText
+        android:id="@+id/hint_register_saldo"
         android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="56dp"
+        android:autofillHints="null"
+        android:background="@drawable/edit_text_background"
+        android:backgroundTint="#021CC8"
+        android:hint="Saldo"
+        android:inputType="number|numberDecimal"
+        android:maxLines="1"
+        android:padding="10dp"
         android:textColorHint="#021CC8"
-
-        app:boxStrokeColor="#021CC8"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirmarCadastro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputNome"
-        app:layout_constraintVertical_bias="0.0"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="#021CC8">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Saldo"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnConfirmarCadastro"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="92dp"
         android:backgroundTint="#021CC8"
         android:fontFamily="sans-serif-black"
         android:text="Cadastrar"
@@ -95,9 +91,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InputSaldo"
-        app:layout_constraintVertical_bias="0.779" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

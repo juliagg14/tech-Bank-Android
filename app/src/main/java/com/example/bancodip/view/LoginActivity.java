@@ -33,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.btnLogar.setOnClickListener(v -> {
             controllerBancoDados.open();
 
-            String nome = binding.loginNome.getEditText().toString().trim().toUpperCase();
-            String email = binding.loginEmail.getEditText().toString().trim().toUpperCase();
+            String nome = binding.hintLoginNome.getText().toString().trim().toUpperCase();
+            String email = binding.hintLoginEmail.getText().toString().trim().toUpperCase();
 
 
             if (controllerBancoDados.isNomeInDatabase(nome) && controllerBancoDados.isEmailInDatabase(email)){

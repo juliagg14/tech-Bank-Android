@@ -33,11 +33,11 @@ public class TransferirActivity extends AppCompatActivity {
         String emailUser = intent.getStringExtra("email_trans");
         Double saldoUser = controllerBancoDados.getSaldoByTitular(emailUser);
 
-        binding.btnConfirmarTranferencia.setOnClickListener(v -> {
+        binding.confirmarTransferencia.setOnClickListener(v -> {
 
-            String destinatarioEmail = binding.transferEmail.getEditText().toString().toUpperCase();
+            String destinatarioEmail = binding.transUserEmail.getText().toString().toUpperCase();
             Double destinatarioSaldo = controllerBancoDados.getSaldoByTitular(destinatarioEmail);
-            String valorUser = binding.tranferirValor.getEditText().toString();
+            String valorUser = binding.transUserValor.getText().toString();
 
             if(controllerBancoDados.isEmailInDatabase(destinatarioEmail) && saldoUser > 0){
                 try {
@@ -52,8 +52,8 @@ public class TransferirActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     controllerBancoDados.close();
-                    binding.tranferirValor.setTextDirection(Integer.parseInt(""));
-                    binding.transferEmail.setTextDirection(Integer.parseInt(""));
+                    binding.transUserValor.setTextDirection(Integer.parseInt(""));
+                    binding.transUserEmail.setTextDirection(Integer.parseInt(""));
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setTitle("");
@@ -71,8 +71,7 @@ public class TransferirActivity extends AppCompatActivity {
                 }
             }else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Banco WYK");
-                builder.setMessage("Saldo insuficiente ou email invalido");
+                builder.setTitle("Falha");
                 builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
