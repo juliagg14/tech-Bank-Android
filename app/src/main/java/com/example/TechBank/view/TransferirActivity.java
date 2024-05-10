@@ -1,18 +1,15 @@
-package com.example.bancodip.view;
+package com.example.TechBank.view;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.PendingIntent;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.IntentSender;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
+import com.example.TechBank.controller.ControllerBancoDados;
+import com.example.TechBank.databinding.ActivityTransferirBinding;
 
-import com.example.bancodip.R;
-import com.example.bancodip.controller.ControllerBancoDados;
-import com.example.bancodip.databinding.ActivityTransferirBinding;
 
 public class TransferirActivity extends AppCompatActivity {
 
@@ -32,6 +29,7 @@ public class TransferirActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String emailUser = intent.getStringExtra("email_trans");
         Double saldoUser = controllerBancoDados.getSaldoByTitular(emailUser);
+        Double chequeUser = controllerBancoDados.getChequeByTitular(emailUser);
 
         binding.confirmarTransferencia.setOnClickListener(v -> {
 
@@ -52,16 +50,16 @@ public class TransferirActivity extends AppCompatActivity {
                     e.printStackTrace();
                 } finally {
                     controllerBancoDados.close();
-                    binding.transUserValor.setTextDirection(Integer.parseInt(""));
-                    binding.transUserEmail.setTextDirection(Integer.parseInt(""));
+                    binding.transUserValor.setText("");
+                    binding.transUserEmail.setText("");
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle("");
-                    builder.setMessage("Transferência feita com sucesso");
-                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+                    builder.setMessage("Sucesso!");
+                    builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            // Nada aqui
+
                         }
                     });
 
@@ -69,13 +67,44 @@ public class TransferirActivity extends AppCompatActivity {
                     alerta.show();
 
                 }
-            }else {
+            }else if(controllerBancoDados.isEmailInDatabase(destinatarioEmail) && saldoUser <= 0 && chequeUser > 0){
+                try{
+                    Double saldoUserNew = saldoUser - Double.parseDouble(valorUser);
+                    Double chequeUserNew = chequeUser - Double.parseDouble(valorUser);
+                    Double saldoDestinatarioNew = destinatarioSaldo + Double.parseDouble(valorUser);
+
+                    controllerBancoDados.updateSaldo(destinatarioEmail, saldoDestinatarioNew);
+                    controllerBancoDados.updateCheque(emailUser, chequeUserNew);
+                    controllerBancoDados.updateSaldo(emailUser, saldoUserNew);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }finally {
+                    controllerBancoDados.close();
+                    binding.transUserValor.setText("");
+                    binding.transUserEmail.setText("");
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+                    builder.setMessage("Sucesso");
+                    builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+
+                    AlertDialog alerta = builder.create();
+                    alerta.show();
+                }
+
+            } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Falha");
-                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+                builder.setMessage("Saldo insuficiente");
+                builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // nada aqui
+
                     }
                 });
 

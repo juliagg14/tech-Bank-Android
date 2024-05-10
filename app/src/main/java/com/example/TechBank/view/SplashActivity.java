@@ -1,12 +1,13 @@
-package com.example.bancodip.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.TechBank.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.example.bancodip.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.TechBank.R;
+
 
 public class SplashActivity extends AppCompatActivity {
 

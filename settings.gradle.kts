@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Banco DIP"
+rootProject.name = "TechBank"
 include(":app")
  

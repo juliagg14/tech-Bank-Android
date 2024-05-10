@@ -1,4 +1,4 @@
-package com.example.bancodip.controller;
+package com.example.TechBank.controller;
 
 import android.text.TextUtils;
 import android.util.Patterns;

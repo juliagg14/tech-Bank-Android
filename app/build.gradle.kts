@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bancodip"
+    namespace = "com.example.TechBank"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.bancodip"
+        applicationId = "com.example.TechBank"
         minSdk = 27
         targetSdk = 33
         versionCode = 1

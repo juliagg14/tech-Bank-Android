@@ -1,4 +1,4 @@
-package com.example.bancodip.controller;
+package com.example.TechBank.controller;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -8,7 +8,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.example.bancodip.model.ModelBancoDados;
+import com.example.TechBank.model.ModelBancoDados;
 
 public class ControllerBancoDados {
 

@@ -1,19 +1,18 @@
-package com.example.bancodip.view;
+package com.example.TechBank.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.bancodip.R;
-import com.example.bancodip.controller.ControllerBancoDados;
-import com.example.bancodip.controller.Util;
-import com.example.bancodip.databinding.ActivityMainBinding;
-import com.example.bancodip.model.ModelBancoDados;
+import com.example.TechBank.R;
+import com.example.TechBank.controller.ControllerBancoDados;
+import com.example.TechBank.controller.Util;
+import com.example.TechBank.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends AppCompatActivity {
 

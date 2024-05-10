@@ -6,11 +6,11 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_logo_bancodip"
+        android:icon="@drawable/logobank"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_logo_bancodip_round"
+        android:roundIcon="@drawable/logobank"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BancoDIP"
+        android:theme="@style/Theme.TechBank"
         tools:targetApi="31">
 
         <activity

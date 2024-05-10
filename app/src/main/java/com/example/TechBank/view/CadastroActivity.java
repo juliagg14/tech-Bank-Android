@@ -1,4 +1,4 @@
-package com.example.bancodip.view;
+package com.example.TechBank.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.bancodip.controller.ControllerBancoDados;
-import com.example.bancodip.controller.Util;
-import com.example.bancodip.databinding.ActivityCadastroBinding;
-import com.example.bancodip.databinding.ActivityCadastroBinding;
+import com.example.TechBank.controller.ControllerBancoDados;
+import com.example.TechBank.controller.Util;
+import com.example.TechBank.databinding.ActivityCadastroBinding;
+
 
 public class CadastroActivity extends AppCompatActivity {
 

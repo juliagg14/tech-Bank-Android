@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.BancoDIP" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.TechBank" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/blue_type01</item>
     </style>
 
-    <style name="Theme.BancoDIP" parent="Base.Theme.BancoDIP" />
+    <style name="Theme.TechBank" parent="Base.Theme.TechBank" />
 </resources>
